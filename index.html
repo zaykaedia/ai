@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoHub - Всё о криптовалютах</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">💰 CryptoHub</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Главная</a></li>
+                <li><a href="#rates" class="nav-link">Курсы</a></li>
+                <li><a href="#blog" class="nav-link">Блог</a></li>
+                <li><a href="#contact" class="nav-link">Контакты</a></li>
+                <li><a href="#profile" class="nav-link btn-login">Личный кабинет</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главная секция -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Добро пожаловать в CryptoHub</h1>
+            <p>Ваш надежный помощник в мире криптовалют</p>
+            <p class="hero-subtitle">Отслеживайте курсы, читайте новости и управляйте своим портфелем</p>
+            <button class="btn btn-primary" onclick="document.getElementById('rates').scrollIntoView()">Смотреть курсы</button>
+        </div>
+        <div class="hero-image">
+            <div class="floating-crypto">📈</div>
+            <div class="floating-crypto" style="animation-delay: 1s;">₿</div>
+            <div class="floating-crypto" style="animation-delay: 2s;">Ξ</div>
+        </div>
+    </section>
+
+    <!-- Информация о криптовалютах -->
+    <section id="info" class="info-section">
+        <div class="container">
+            <h2>Почему выбирают криптовалюты?</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="icon">🔒</div>
+                    <h3>Безопасность</h3>
+                    <p>Криптографическая защита ваших средств с использованием технологии blockchain</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon">⚡</div>
+                    <h3>Скорость</h3>
+                    <p>Быстрые транзакции без посредников и банков, доступные 24/7</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon">🌍</div>
+                    <h3>Глобальность</h3>
+                    <p>Переводы в любую точку мира за считанные минуты</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon">💡</div>
+                    <h3>Инновации</h3>
+                    <p>Передовые технологии и постоянное развитие экосистемы</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Таблица с курсами -->
+    <section id="rates" class="rates-section">
+        <div class="container">
+            <h2>Текущие курсы криптовалют</h2>
+            <div class="filters">
+                <input type="text" id="searchInput" placeholder="Поиск криптовалюты..." class="search-box">
+                <select id="currencySelect" class="currency-select">
+                    <option value="USD">USD 🇺🇸</option>
+                    <option value="EUR">EUR 🇪🇺</option>
+                    <option value="RUB">RUB 🇷🇺</option>
+                </select>
+            </div>
+            <div class="table-responsive">
+                <table class="rates-table">
+                    <thead>
+                        <tr>
+                            <th>Криптовалюта</th>
+                            <th>Символ</th>
+                            <th>Цена</th>
+                            <th>24ч Изменение</th>
+                            <th>Рыночная капитализация</th>
+                            <th>Действие</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ratesTableBody">
+                        <!-- Данные загружаются через JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-secondary" onclick="refreshRates()">🔄 Обновить курсы</button>
+        </div>
+    </section>
+
+    <!-- Блог с новостями -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <h2>Последние новости криптовалютного мира</h2>
+            <div class="blog-grid" id="blogGrid">
+                <!-- Новости загружаются через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Свяжитесь с нами</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Информация</h3>
+                    <p><strong>Email:</strong> info@cryptohub.com</p>
+                    <p><strong>Телефон:</strong> +7 (999) 123-45-67</p>
+                    <p><strong>Адрес:</strong> г. Москва, ул. Технологическая, 1</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">📱 Telegram</a>
+                        <a href="#" class="social-icon">𝕏 Twitter</a>
+                        <a href="#" class="social-icon">f Facebook</a>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="handleContactSubmit(event)">
+                    <h3>Отправить сообщение</h3>
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="email" placeholder="Ваша почта" required>
+                    <textarea placeholder="Ваше сообщение" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно личного кабинета -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProfile()">&times;</span>
+            <h2>Личный кабинет</h2>
+            
+            <!-- Вкладки -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('login')">Вход</button>
+                <button class="tab-btn" onclick="switchTab('register')">Регистрация</button>
+                <button class="tab-btn" onclick="switchTab('portfolio')">Мой портфель</button>
+            </div>
+
+            <!-- Вход -->
+            <div id="login" class="tab-content active">
+                <form onsubmit="handleLogin(event)">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Пароль" required>
+                    <button type="submit" class="btn btn-primary">Войти</button>
+                </form>
+            </div>
+
+            <!-- Регистрация -->
+            <div id="register" class="tab-content">
+                <form onsubmit="handleRegister(event)">
+                    <input type="text" placeholder="Полное имя" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Пароль" required>
+                    <input type="password" placeholder="Подтвердите пароль" required>
+                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                </form>
+            </div>
+
+            <!-- Портфель -->
+            <div id="portfolio" class="tab-content">
+                <div class="portfolio-info">
+                    <h3>Мой портфель</h3>
+                    <div id="portfolioContent">
+                        <p>Войдите в свой аккаунт, чтобы увидеть портфель</p>
+                    </div>
+                </div>
+                <form id="addAssetForm" onsubmit="addAsset(event)" class="add-asset-form">
+                    <h4>Добавить активы</h4>
+                    <select id="assetSelect" required>
+                        <option value="">Выберите криптовалюту</option>
+                        <option value="Bitcoin">Bitcoin (BTC)</option>
+                        <option value="Ethereum">Ethereum (ETH)</option>
+                        <option value="Litecoin">Litecoin (LTC)</option>
+                        <option value="Ripple">Ripple (XRP)</option>
+                    </select>
+                    <input type="number" id="assetAmount" placeholder="Количество" step="0.00000001" required>
+                    <button type="submit" class="btn btn-primary">Добавить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>О CryptoHub</h4>
+                    <p>Ведущая платформа для отслеживания и анализа криптовалют</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Быстрые ссылки</h4>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#rates">Курсы</a></li>
+                        <li><a href="#blog">Блог</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Правовая информация</h4>
+                    <ul>
+                        <li><a href="#">Условия использования</a></li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Дисклеймер</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CryptoHub. Все права защищены. 💰</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
